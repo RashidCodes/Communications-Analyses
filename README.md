@@ -5,9 +5,9 @@ SQL is used to explore the data. The ```communications.sql``` and ```upload_comm
 <br/>
 
 ## Data preparation
-The data obviously contained some missing information. I removed all tuples that contained NULL marks. This reduced the sample size to about 55% of the original. It's not much, but it reduces to the need to make assumptions about of the tuples. There are several ways to handle missing entries.
+The data contained some missing information. I removed all tuples that contained *NULL* marks. This reduced the sample size to about 55% of the original. It's not much, but it reduces to the need to make assumptions about of the tuples. There are several ways to handle missing entries.
 
-For numerical attributes like ```age```, I could have imputed the missing entries with a central tendency like the median. Using a machine learning algorithm to predict missing values is also another option, but for simplicity, I just removed all the entries. For categorical variables like ```customer_country```, I think it'll be better to remove missing entries due to the importance of analysing our communication performance by country.
+For numerical attributes like ```age```, I could have imputed the missing entries with a measure of central tendency like the **median**. Using a machine learning algorithm to predict missing values was also another option, but for simplicity, I just removed all the entries. For categorical variables like ```customer_country```, I think it'll be better to remove missing entries due to the importance of analysing our communication performance by country.
 
 Here's the code I used to prepare the data for analyses. Luckily for me, I didn't have to clean much. A simple view of the data did the trick.
 
@@ -46,7 +46,9 @@ ALTER TABLE communications ALTER COLUMN [Created At] DATETIME2
 <br/>
 
 ## Questions
-I had a few questions about the dataset after scrutinizing it meticulously. So the goal of this analyses is to answer the questions.
+<br/>
+
+I had a few questions about the dataset after scrutinizing it meticulously. So, the goal of this analyses is to answer the questions.
 
 ### Questions about the Messages
 1. How many messages were sent in 2021?
@@ -55,7 +57,7 @@ SELECT COUNT([Message Id]) AS numOfMessages
 FROM clean_communications;
 ```
 
-After the cleaning data, I have 79562 messages.
+After the cleaning data, I had 79562 messages.
 
 <br/>
 
@@ -77,7 +79,7 @@ FROM clean_communications
 WHERE Clicked = 0;
 ```
 
-73801 of the messages that were sent were not clicked. In this analyses, I'd like to focus on the attributes of the messages that were clicked. I'm doing this because I believe thatif we can learn about the messages that were clicked, perhaps we can modify our communication habits accordingly. Nevertheless, it's important to learn about the messages that were not clicked.
+73801 of the messages that were sent were not clicked. In this analyses, I'd like to focus on the attributes of the messages that were clicked. I'm doing this because I believe that if we can learn about the messages that were clicked, perhaps we can modify our communication habits accordingly. Nevertheless, it's important to learn about the messages that were not clicked.
 
 <br/>
 
@@ -97,6 +99,8 @@ WHERE Clicked = 1 AND Converted = 1;
 SELECT MAX([Sent At])
 FROM clean_communications;
 ```
+
+The last message was sent on October 1, 2021 based on the cleaned data.
 
 <br/>
 
@@ -150,6 +154,8 @@ SELECT DISTINCT Age as MaximumAge
 FROM clean_communications
 WHERE Age = @maxAge;
 ```
+
+<br/>
 
 Looks like we have a "very" senior citizen in our midst - aged 96.
 <br/>
@@ -217,4 +223,4 @@ Moose Money are associated with a product type called "BNPL".
 ## Communications performance over time
 <img src="Clicks.png" />
 
-Looks like most of customers click on the messages that we send within May and September. The same trend is observed with messages that lead to conversations. Over the years, I've noticed that many people like to have fun towards the end of the year. Some people seem to forget about the fact that they'll have bills to pay when the new year begins. Thus, people will not respond to messages related to debts at the beginning of the year because they're probably out of money. They'll have to work a few months to make some many to pay off their debts. Similarly, towards the end of the year, people ignore debts because they'll need money to have fun.
+Looks like most of customers click on the messages that we send within May and September. The same trend is observed with messages that lead to conversations. Over the years, I've noticed that many people like to have fun towards the end of the year. Some people seem to forget about the fact that they'll have bills to pay when the new year begins. Thus, it's not suprising that people do not respond to messages related to debts at the beginning of the year because they're probably out of money. They'll have to work a few months to make some many to pay off their debts. Similarly, towards the end of the year, people ignore debts because they'll need money to have fun.
