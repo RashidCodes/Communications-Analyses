@@ -9,7 +9,7 @@ The data contained some missing information. I removed all tuples that contained
 
 For numerical attributes like ```age```, I could have imputed the missing entries with a measure of central tendency like the **median**. Using a machine learning algorithm to predict missing values was also another option, but for simplicity, I just removed all the entries. For categorical variables like ```customer_country```, I think it'll be better to remove missing entries due to the importance of analysing our communication performance by country.
 
-Here's the code I used to prepare the data for analyses. Luckily for me, I didn't have to clean much. A simple view of the data did the trick.
+Here's the code I used to prepare the data for analyses. Luckily for me, I didn't have to clean much. A simple view of the data did the trick. The cleaned data was then exported for analysis with Tableau.
 
 ```sql
 IF OBJECT_ID('clean_communications') IS NOT NULL  
