@@ -224,3 +224,8 @@ Moose Money are associated with a product type called "BNPL".
 <img src="Clicks.png" />
 
 Looks like most of customers click on the messages that we send within May and September. The same trend is observed with messages that lead to conversations. Over the years, I've noticed that many people like to have fun towards the end of the year. Some people seem to forget about the fact that they'll have bills to pay when the new year begins. Thus, it's not suprising that people do not respond to messages related to debts at the beginning of the year because they're probably out of money. They'll have to work a few months to make some many to pay off their debts. Similarly, towards the end of the year, people ignore debts because they'll need money to have fun.
+
+<br/>
+
+## Suggestion and Discussions
+Perhaps we should more messages within this time period. Additionally, it'll be interesting to explore why the number of converted and clicked messages remains low for certain clients.
